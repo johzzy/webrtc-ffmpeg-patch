@@ -196,6 +196,72 @@ index fdc533b38f..11b2a58b2c 100644
      &ff_vp9_parser,
 +    &ff_h264_parser,
      NULL };
+diff --git a/chromium/config/Chromium/mac/arm64/config.h b/chromium/config/Chromium/mac/arm64/config.h
+index 0413a39a49..e7adb22303 100644
+--- a/chromium/config/Chromium/mac/arm64/config.h
++++ b/chromium/config/Chromium/mac/arm64/config.h
+@@ -816,7 +816,7 @@
+ #define CONFIG_H263I_DECODER 0
+ #define CONFIG_H263P_DECODER 0
+ #define CONFIG_H263_V4L2M2M_DECODER 0
+-#define CONFIG_H264_DECODER 0
++#define CONFIG_H264_DECODER 1
+ #define CONFIG_H264_CRYSTALHD_DECODER 0
+ #define CONFIG_H264_V4L2M2M_DECODER 0
+ #define CONFIG_H264_MEDIACODEC_DECODER 0
+diff --git a/chromium/config/Chromium/mac/arm64/libavcodec/codec_list.c b/chromium/config/Chromium/mac/arm64/libavcodec/codec_list.c
+index 9407bd2775..88e5bc816a 100644
+--- a/chromium/config/Chromium/mac/arm64/libavcodec/codec_list.c
++++ b/chromium/config/Chromium/mac/arm64/libavcodec/codec_list.c
+@@ -15,4 +15,5 @@ static const AVCodec * const codec_list[] = {
+     &ff_pcm_s32le_decoder,
+     &ff_pcm_u8_decoder,
+     &ff_libopus_decoder,
++    &ff_h264_decoder,
+     NULL };
+diff --git a/chromium/config/Chromium/mac/arm64/libavcodec/parser_list.c b/chromium/config/Chromium/mac/arm64/libavcodec/parser_list.c
+index f81fbe8bbc..de009aa51f 100644
+--- a/chromium/config/Chromium/mac/arm64/libavcodec/parser_list.c
++++ b/chromium/config/Chromium/mac/arm64/libavcodec/parser_list.c
+@@ -6,4 +6,5 @@ static const AVCodecParser * const parser_list[] = {
+     &ff_vp3_parser,
+     &ff_vp8_parser,
+     &ff_vp9_parser,
++    &ff_h264_parser,
+     NULL };
+diff --git a/chromium/config/Chromium/mac/x64/config.h b/chromium/config/Chromium/mac/x64/config.h
+index 8f82810e50..2b8f06c7af 100644
+--- a/chromium/config/Chromium/mac/x64/config.h
++++ b/chromium/config/Chromium/mac/x64/config.h
+@@ -816,7 +816,7 @@
+ #define CONFIG_H263I_DECODER 0
+ #define CONFIG_H263P_DECODER 0
+ #define CONFIG_H263_V4L2M2M_DECODER 0
+-#define CONFIG_H264_DECODER 0
++#define CONFIG_H264_DECODER 1
+ #define CONFIG_H264_CRYSTALHD_DECODER 0
+ #define CONFIG_H264_V4L2M2M_DECODER 0
+ #define CONFIG_H264_MEDIACODEC_DECODER 0
+diff --git a/chromium/config/Chromium/mac/x64/libavcodec/codec_list.c b/chromium/config/Chromium/mac/x64/libavcodec/codec_list.c
+index 9407bd2775..88e5bc816a 100644
+--- a/chromium/config/Chromium/mac/x64/libavcodec/codec_list.c
++++ b/chromium/config/Chromium/mac/x64/libavcodec/codec_list.c
+@@ -15,4 +15,5 @@ static const AVCodec * const codec_list[] = {
+     &ff_pcm_s32le_decoder,
+     &ff_pcm_u8_decoder,
+     &ff_libopus_decoder,
++    &ff_h264_decoder,
+     NULL };
+diff --git a/chromium/config/Chromium/mac/x64/libavcodec/parser_list.c b/chromium/config/Chromium/mac/x64/libavcodec/parser_list.c
+index f81fbe8bbc..de009aa51f 100644
+--- a/chromium/config/Chromium/mac/x64/libavcodec/parser_list.c
++++ b/chromium/config/Chromium/mac/x64/libavcodec/parser_list.c
+@@ -6,4 +6,5 @@ static const AVCodecParser * const parser_list[] = {
+     &ff_vp3_parser,
+     &ff_vp8_parser,
+     &ff_vp9_parser,
++    &ff_h264_parser,
+     NULL };
 diff --git a/ffmpeg_generated.gni b/ffmpeg_generated.gni
 index 71f17d1735..f207d25baf 100644
 --- a/ffmpeg_generated.gni
